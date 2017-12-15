@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/gonggong.css">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <style>
+        .w{margin-top:20px;}
+    </style>
+    <script>
+        window.onload=function()
+        {
+            var oF=document.getElementById("form1");
+            var oP1=document.getElementById("p1");
+            var oP2=document.getElementById("p2");
+            oF.onsubmit=function()
+            {
+                if(oF.username.value=="")
+                {
+                   	/*alert("用户名不能为空！");*/
+							oP1.innerHTML="用户名不能为空！";
+							oP1.style.color="red";
+                    return false;
+                }
+                else
+                {
+                    var reg=/^\w{6,18}$/g;
+                    if(!reg.test(oF.username.value))
+                    {
+                        /*alert("用户名格式错误！");*/
+									oP1.innerHTML="用户名格式错误！"
+									oP1.style.color="red";
+                        return false;
+                    }
+                }
+                if(oF.password1.value=="")
+                {
+                    /*alert("密码不能为空！")*/
+							oP2.innerHTML="密码不能为空！"
+							oP2.style.color="red";
+                    return false;
+                }
+                else
+                {
+                    var reg=/^\S{6,18}$/;
+                    if(!reg.test(oF.password1.value))
+                    {
+                        /*alert("密码格式错误！")*/
+									oP2.innerHTML="密码格式错误！";
+									oP2.style.color="red";
+                        return false;
+                    }
+                }
+            }
+				oF.username.onblur=function()
+				{
+					if(oF.username.value=="")
+                {
+                   	/*alert("用户名不能为空！");*/
+							oP1.innerHTML="用户名不能为空！";
+							oP1.style.color="red";
+                    return false;
+                }
+                else
+                {
+                    var reg=/^\w{6,18}$/g;
+                    if(!reg.test(oF.username.value))
+                    {
+                        /*alert("用户名格式错误！");*/
+									oP1.innerHTML="用户名格式错误！"
+									oP1.style.color="red";
+                        return false;
+                    }
+							else
+							{
+								oP1.innerHTML="用户名正确"
+								oP1.style.color="green";
+                     
+							}
+                }
+				}
+				oF.password1.onblur=function()
+				{
+					if(oF.password1.value=="")
+                {
+                    /*alert("密码不能为空！")*/
+							oP2.innerHTML="密码不能为空！"
+							oP2.style.color="red";
+                   return false;
+                }
+              else
+                {
+                   var reg=/^\S{6,18}$/;
+                   if(!reg.test(oF.password1.value))
+                   {
+                        /*alert("密码格式错误！")*/
+								oP2.innerHTML="密码格式错误！";
+								oP2.style.color="red";
+                      return false;
+                    }
+							else{
+								oP2.innerHTML="密码格式正确";
+								oP2.style.color="green";
+							}
+                }
+				}
+				
+
+        }
+    </script>
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#u">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse" id="u">
+            <ul class="nav navbar-nav">
+                <li><a href="index.php" id="a1">首页<span class="sr-only">(current)</span></a></li>
+                <li><a href="qdzx.php">前端咨询</a></li>
+                <li><a href="kcxz.php">课程选择</a></li>
+                <li><a href="toupiao.php">投票</a></li>
+                <li><a href="sousuo.php">搜索</a></li>
+                <li><a href="register.html">注册</a></li>
+                <li><a href="login.html">登录</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="hidden-md"><a href="#">关于我们</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+    <div class="container">
+        <div id="youjiuye" class="carousel side" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#youjiuye" data-slide-to="0" class="active">
+
+                </li>
+                <li data-target="youjiuye" data-slide-to="1"></li>
+            </ol>
+            <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                    <img src="images/hdp_01.jpg">
+                </div>
+                <div class="item">
+                    <img src="images/hdp_02.jpg" >
+                </div>
+            </div>
+            <a class="left carousel-control"  href="#youjiuye" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#youjiuye" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+    <div class="container">
+        <ul class="breadcrumb">
+            <li><a href="index.html">首页</a></li>
+            <li class="active">投票</li>
+        </ul>
+    </div>
+    <div class="container">
+		<h2>用户登录</h2>
+        <hr>
+        <form class="form-horizontal" id="form1" action="login.php" method="post">
+            <div class="form-group">
+                <label for="username" class="control-label col-md-2">用户名</label>
+                <div class="col-md-10 " >
+                    <input type="text" id="username" name="username" class="form-control" placeholder="用户名">
+                    <p id="p1">请输入用户名</p>
+                </div>
+
+            </div>
+            <div class="form-group">
+                <label for="password1"  class="control-label col-md-2">密码</label>
+                <div class="col-md-10 ">
+                    <input type="password" id="password1" name="password1" class="form-control" placeholder="输入密码">
+                    <p id="p2">请输入密码</p>
+                </div>
+            </div>
+            <div class="form-group">
+					<div class="col-md-10 col-md-offset-2">
+						<label>
+							<input type="checkbox" name="denglu"> 五天内免登录
+						</label>
+					</div>
+           	</div>
+            <div class="col-md-10 col-md-offset-2">
+                <input type="submit" class="btn btn-success" value="登录">
+                <input type="reset" class="btn btn-default">
+                <a href="register.html" class="btn btn-danger">还没有账号,去注册</a>
+            </div>
+        </form>
+    </div>
+    <div class="container w">
+            <div class="foot">
+                <p>Copyright1999-2016北京中公教育科技股份有限公司.All Rights Reserved 京ICP证161188号</p>
+            </div>
+        </div>
+</body>
+</html>
